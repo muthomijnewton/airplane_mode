@@ -20,7 +20,11 @@
   "column_break_zikx",
   "duration_of_flight",
   "amended_from",
-  "status"
+  "status",
+  "price_details_section",
+  "add_ons",
+  "flight_price",
+  "total_amount"
  ],
  "fields": [
   {
@@ -33,7 +37,8 @@
    "in_list_view": 1,
    "label": "Passenger",
    "options": "Flight Passenger",
-   "reqd": 1
+   "reqd": 1,
+   "search_index": 1
   },
   {
    "fieldname": "source_airport",
@@ -119,19 +124,44 @@
    "search_index": 1
   },
   {
+   "default": "Booked",
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
    "options": "Booked\nChecked-In\nBoarded",
    "reqd": 1
+  },
+  {
+   "fieldname": "add_ons",
+   "fieldtype": "Table",
+   "label": "Add Ons",
+   "options": "Airplane Ticket Add-on Item"
+  },
+  {
+   "fieldname": "flight_price",
+   "fieldtype": "Currency",
+   "label": "Flight Price",
+   "reqd": 1
+  },
+  {
+   "fieldname": "price_details_section",
+   "fieldtype": "Section Break",
+   "label": "Price Details"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "non_negative": 1,
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-07-23 14:32:56.855422",
+ "modified": "2026-07-23 16:14:29.109179",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket",

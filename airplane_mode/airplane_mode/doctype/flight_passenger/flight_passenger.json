@@ -8,7 +8,8 @@
   "section_break_ucan",
   "first_name",
   "last_name",
-  "date_of_birth"
+  "date_of_birth",
+  "full_name"
  ],
  "fields": [
   {
@@ -33,6 +34,12 @@
    "in_list_view": 1,
    "label": "Date Of Birth",
    "reqd": 1
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
@@ -43,7 +50,7 @@
    "link_fieldname": "passenger"
   }
  ],
- "modified": "2026-07-23 14:38:47.957867",
+ "modified": "2026-07-23 15:39:48.754279",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Flight Passenger",
@@ -69,5 +76,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "first_name"
+ "title_field": "full_name"
 }
