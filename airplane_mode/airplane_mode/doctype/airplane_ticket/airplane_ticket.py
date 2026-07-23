@@ -18,7 +18,7 @@ class AirplaneTicket(Document):
 		unique_items = []
 		seen = set()
 
-		for add_on in add_ons:
+		for add_on in self.add_ons:
 			if add_on.item not in seen:
 				seen.add(add_on.item)
 				unique_items.append(add_on)
