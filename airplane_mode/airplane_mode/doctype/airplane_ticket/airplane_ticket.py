@@ -3,12 +3,27 @@
 
 import frappe
 from frappe.model.document import Document
+from random import randint, choice
 
 
 class AirplaneTicket(Document):
+	def before_insert(self):
+		while True:
+			seat = f"{randint(1, 99)}{choice(['A', 'B', 'C', 'D', 'E'])}"
+
+			if not frappe.db.exists(
+				"Airplane Ticket",
+				{
+					'flight': self.flight,
+					'seat': seat
+				}
+			):
+				self.seat = seat
+				break
+
 	def validate(self):
-		self.remove_duplicate_add_ons()
-		self.calculate_total_amount()
+			self.remove_duplicate_add_ons()
+			self.calculate_total_amount()	
 
 	def before_submit(self):
 		if self.status != 'Boarded':

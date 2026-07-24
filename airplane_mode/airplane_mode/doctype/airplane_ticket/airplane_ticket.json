@@ -8,29 +8,30 @@
  "field_order": [
   "section_break_owsd",
   "passenger",
-  "source_airport",
+  "status",
   "source_airport_code",
   "column_break_tawd",
   "flight",
-  "destination_airport",
+  "seat",
   "destination_airport_code",
+  "add_ons_section",
+  "add_ons",
+  "price_details_section",
+  "flight_price",
+  "column_break_zfbu",
+  "total_amount",
   "departure_details_section",
   "departure_date",
   "departure_time",
   "column_break_zikx",
   "duration_of_flight",
-  "amended_from",
-  "status",
-  "price_details_section",
-  "add_ons",
-  "flight_price",
-  "total_amount",
-  "seat"
+  "amended_from"
  ],
  "fields": [
   {
    "fieldname": "section_break_owsd",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Passenger"
   },
   {
    "fieldname": "passenger",
@@ -42,43 +43,28 @@
    "search_index": 1
   },
   {
-   "fieldname": "source_airport",
-   "fieldtype": "Link",
-   "label": "Source Airport",
-   "options": "Airplane Flight",
-   "reqd": 1
-  },
-  {
-   "fieldname": "destination_airport",
-   "fieldtype": "Link",
-   "label": "Destination Airport",
-   "options": "Airplane Flight",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "source_airport.source_airport_code",
+   "fetch_from": "flight.source_airport_code",
    "fieldname": "source_airport_code",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Source Airport Code",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
-   "fetch_from": "destination_airport.destination_airport_code",
+   "fetch_from": "flight.destination_airport_code",
    "fieldname": "destination_airport_code",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Destination Airport Code",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "flight",
    "fieldtype": "Link",
    "label": "Flight",
    "options": "Airplane Flight",
-   "reqd": 1
+   "reqd": 1,
+   "search_index": 1
   },
   {
    "fetch_from": "flight.date_of_departure",
@@ -118,16 +104,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Airplane Ticket",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
    "default": "Booked",
    "fieldname": "status",
    "fieldtype": "Select",
@@ -151,7 +127,7 @@
   {
    "fieldname": "price_details_section",
    "fieldtype": "Section Break",
-   "label": "Price Details"
+   "label": "Flight Price"
   },
   {
    "fieldname": "total_amount",
@@ -165,13 +141,32 @@
    "fieldtype": "Data",
    "label": "Seat",
    "read_only": 1
+  },
+  {
+   "fieldname": "add_ons_section",
+   "fieldtype": "Section Break",
+   "label": "Add ons"
+  },
+  {
+   "fieldname": "column_break_zfbu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Airplane Ticket",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-07-23 21:25:21.642785",
+ "modified": "2026-07-24 03:19:46.557997",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket",

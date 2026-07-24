@@ -20,8 +20,7 @@
   "date_of_departure",
   "duration",
   "column_break_bwlb",
-  "time_of_departure",
-  "amended_from"
+  "time_of_departure"
  ],
  "fields": [
   {
@@ -104,16 +103,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Airplane Flight",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
    "fieldname": "source_airport",
    "fieldtype": "Link",
    "label": "Source Airport",
@@ -137,7 +126,7 @@
    "link_fieldname": "Flight"
   }
  ],
- "modified": "2026-07-23 21:45:59.350967",
+ "modified": "2026-07-24 03:17:14.253326",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",
