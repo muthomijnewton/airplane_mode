@@ -1,0 +1,54 @@
+{% set flights = frappe.get_all(
+    "Airplane Flight",
+    filters={
+        "is_published": 1
+    },
+    fields=[
+    "name",
+    "route",
+    "airplane",
+    "source_airport_code",
+    "destination_airport_code",
+    "date_of_departure",
+    "time_of_departure",
+    "duration"
+    ],
+    order_by="date_of_departure asc"
+) %}
+
+<h1>Available Flights</h1>
+
+{% for flight in flights %}
+
+    {% set airplane = frappe.get_doc("Airplane", flight.airplane) %}
+    {% set airline = frappe.get_doc("Airline", airplane.airline) %}
+
+    <hr>
+
+    <p><strong>Airline:</strong> {{ airline.name }}</p>
+
+    <p>
+        <strong>Route:</strong>
+        {{ flight.source_airport_code }}
+        ->
+        {{ flight.destination_airport_code }}
+    </p>
+
+    <p>
+        <strong>Departure:</strong>
+        {{ flight.time_of_departure }}
+    </p>
+
+    <p>
+        <strong>Duration:</strong>
+        {% set hours = (flight.duration // 3600) | int %}
+        {% set minutes = ((flight.duration%3600) // 60) | int %}
+
+        {{ hours }} hr {{ minutes }} min
+    </p>
+
+    <a href="'/{{ flight.route }}">
+        View Flight
+    </a>
+
+{% endfor %}

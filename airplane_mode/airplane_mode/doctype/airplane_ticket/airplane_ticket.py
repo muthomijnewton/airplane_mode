@@ -1,25 +1,56 @@
 # Copyright (c) 2026, Newton Muthomi and contributors
 # For license information, please see license.txt
+import math
+from random import choice
 
 import frappe
+from frappe import _
 from frappe.model.document import Document
-from random import randint, choice
 
 
 class AirplaneTicket(Document):
 	def before_insert(self):
-		while True:
-			seat = f"{randint(1, 99)}{choice(['A', 'B', 'C', 'D', 'E'])}"
+		self.assign_seat()
 
-			if not frappe.db.exists(
-				"Airplane Ticket",
-				{
-					'flight': self.flight,
-					'seat': seat
-				}
-			):
-				self.seat = seat
-				break
+	def assign_seat(self):
+		capacity = frappe.db.get_value(
+			"Airplane",
+			self.flight,
+			"capacity"
+		)
+
+		if not capacity:
+			frappe.throw('The selected airplane does not have a valid capacity.')
+
+		seat_letters = ['A', 'B', 'C', 'D', 'E']
+		seats_per_row = len(seat_letters)
+
+		available_seats = []
+
+		for seat_index in range(capacity):
+			row = (seat_index // seats_per_row) + 1
+			letter = seat_letters[seat_index % seats_per_row]
+			available_seats.append(f"{row}{letter}")
+
+		booked_seats = frappe.get_all(
+			'Airplane Ticket',
+			filters = {
+				'flight': self.flight
+			},
+			pluck = 'seat'
+		)
+
+		booked_seats = set(booked_seats)
+
+		available_seats = [
+			seat for seat in available_seats
+			if seat not in booked_seats
+		]
+
+		if not available_seats:
+			frappe.throw(_('This flight is fully booked.'))
+
+		self.seat = choice(available_seats)
 
 	def validate(self):
 			self.remove_duplicate_add_ons()

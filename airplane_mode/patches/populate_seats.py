@@ -1,6 +1,5 @@
 import frappe
 import random
-import string
 
 
 def execute():
@@ -9,7 +8,8 @@ def execute():
     for flight in flights:
         tickets = frappe.get_all(
             "Airplane Ticket",
-            filters={"flight": flight},
+            filters={"flight": flight,
+                     "seat": ["in", ['', None]]},
             fields=["name"]
         )
 
