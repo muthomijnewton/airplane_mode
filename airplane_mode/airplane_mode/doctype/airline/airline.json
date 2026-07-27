@@ -9,7 +9,8 @@
   "section_break_gjkg",
   "founding_year",
   "customer_care_number",
-  "headquarters"
+  "headquarters",
+  "website"
  ],
  "fields": [
   {
@@ -35,6 +36,12 @@
    "in_list_view": 1,
    "label": "Headquarters",
    "reqd": 1
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website",
+   "options": "URL"
   }
  ],
  "grid_page_length": 50,
@@ -45,7 +52,7 @@
    "link_fieldname": "airline"
   }
  ],
- "modified": "2026-07-23 14:36:43.302778",
+ "modified": "2026-07-27 04:53:29.926322",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airline",
