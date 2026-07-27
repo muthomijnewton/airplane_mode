@@ -17,6 +17,8 @@
   "column_break_stjy",
   "departure_airport",
   "destination_airport_code",
+  "crew_members_section",
+  "crew_member",
   "departure_details_section",
   "date_of_departure",
   "duration",
@@ -140,6 +142,17 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "crew_member",
+   "fieldtype": "Table",
+   "label": "Crew Member",
+   "options": "Flight Crew Member"
+  },
+  {
+   "fieldname": "crew_members_section",
+   "fieldtype": "Section Break",
+   "label": "Crew Members"
   }
  ],
  "grid_page_length": 50,
@@ -153,7 +166,7 @@
    "link_fieldname": "Flight"
   }
  ],
- "modified": "2026-07-27 08:06:19.907149",
+ "modified": "2026-07-27 18:31:04.306432",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",
