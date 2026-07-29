@@ -5,6 +5,14 @@ from calendar import month_name
 
 def send_rent_reminders():
 
+    enabled = frappe.db.get_single_value(
+        "Airport Shop Settings",
+        "enable_rent_reminders"
+    )
+
+    if not enabled:
+        return
+
     # Only send reminders on the first day of each month.
     current_date = getdate(today())
 
