@@ -8,7 +8,7 @@
  "field_order": [
   "section_break_j8vq",
   "tenant_name",
-  "email",
+  "tenant_email",
   "column_break_eiil",
   "company_name",
   "phone_number"
@@ -22,6 +22,7 @@
    "fieldname": "tenant_name",
    "fieldtype": "Data",
    "label": "Tenant Name",
+   "options": "Name",
    "reqd": 1,
    "unique": 1
   },
@@ -30,14 +31,6 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Company Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Email",
-   "options": "Email",
    "reqd": 1
   },
   {
@@ -50,12 +43,20 @@
   {
    "fieldname": "column_break_eiil",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tenant_email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tenant Email",
+   "options": "Email",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-07-29 05:20:56.223429",
+ "modified": "2026-07-29 09:37:59.537695",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop Tenant",

@@ -4,6 +4,11 @@ app_publisher = "Newton Muthomi"
 app_description = "Airport site using Frappe"
 app_email = "muthomijnewton@gmail.com"
 app_license = "mit"
+scheduler_events = {
+    "daily": [
+        "airplane_mode.airport_shop_management.reminders.send_rent_reminders"
+    ]
+}
 
 # Apps
 # ------------------
