@@ -14,6 +14,7 @@
   "airport_details_section",
   "source_airport",
   "source_airport_code",
+  "gate_number",
   "column_break_stjy",
   "departure_airport",
   "destination_airport_code",
@@ -131,7 +132,8 @@
   {
    "fieldname": "route",
    "fieldtype": "Data",
-   "label": "Route"
+   "label": "Route",
+   "read_only": 1
   },
   {
    "fieldname": "amended_from",
@@ -153,6 +155,12 @@
    "fieldname": "crew_members_section",
    "fieldtype": "Section Break",
    "label": "Crew Members"
+  },
+  {
+   "fieldname": "gate_number",
+   "fieldtype": "Data",
+   "label": "Gate Number",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
@@ -166,7 +174,7 @@
    "link_fieldname": "Flight"
   }
  ],
- "modified": "2026-07-27 18:31:04.306432",
+ "modified": "2026-07-29 10:23:54.076736",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",

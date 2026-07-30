@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_guest_to_view": 1,
  "allow_rename": 1,
  "autoname": "Format: {airport}-{shop_number}",
  "creation": "2026-07-29 04:45:48.531273",
@@ -10,14 +11,18 @@
   "shop_number",
   "tenant",
   "monthly_rent",
+  "shop_type",
   "column_break_dyuz",
   "shop_name",
   "airport",
   "area_sq_m",
   "contract_details_section",
-  "status",
   "lease_start_date",
-  "lease_end_date"
+  "status",
+  "route",
+  "column_break_mvsy",
+  "lease_end_date",
+  "is_published"
  ],
  "fields": [
   {
@@ -97,12 +102,36 @@
    "fieldname": "contract_details_section",
    "fieldtype": "Section Break",
    "label": "Contract Details"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_published",
+   "fieldtype": "Check",
+   "label": "Is Published?"
+  },
+  {
+   "fieldname": "column_break_mvsy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shop_type",
+   "fieldtype": "Link",
+   "label": "Shop Type",
+   "options": "Shop Type"
   }
  ],
  "grid_page_length": 50,
+ "has_web_view": 1,
  "index_web_pages_for_search": 1,
+ "is_published_field": "is_published",
  "links": [],
- "modified": "2026-07-29 08:01:37.280501",
+ "modified": "2026-07-30 13:37:18.882317",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Airport Shop",
@@ -122,6 +151,7 @@
    "write": 1
   }
  ],
+ "route": "route",
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
  "sort_field": "modified",

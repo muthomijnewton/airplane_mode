@@ -9,6 +9,9 @@ scheduler_events = {
         "airplane_mode.airport_shop_management.reminders.send_rent_reminders"
     ]
 }
+fixtures = [
+    "Shop Type"
+]
 
 # Apps
 # ------------------

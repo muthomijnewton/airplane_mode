@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>{{ doc.name }}</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+
+</head>
+
+<body>
+
+<nav>
+
+    <a href="/shops" class="brand">
+
+        <span>Airport Shop Portal</span>
+
+    </a>
+
+</nav>
+
+<main class="flex one center">
+
+<div style="width:90%; max-width:800px; margin-top:4rem;">
+
+    <article class="card">
+
+        <header>
+
+            <h2>{{ doc.name }}</h2>
+
+        </header>
+
+        <p>
+
+            <strong>Shop Number</strong>
+
+            <br>
+
+            {{ doc.shop_number }}
+
+        </p>
+
+        <p>
+
+            <strong>Airport</strong>
+
+            <br>
+
+            {{ doc.airport }}
+
+        </p>
+
+        <p>
+
+            <strong>Area</strong>
+
+            <br>
+
+            {{ doc.area_sq_m }} sq. m
+
+        </p>
+
+        <p>
+
+            <strong>Monthly Rent</strong>
+
+            <br>
+
+            KES {{ "{:,.2f}".format(doc.monthly_rent or 0) }}
+
+        </p>
+
+        <p>
+
+            <strong>Status</strong>
+
+            <br>
+
+            {{ doc.status }}
+
+        </p>
+
+        {% if doc.status == "Available" %}
+
+        <footer>
+
+            <a
+                class="button success"
+                href="/shop-lead-form/new?shop={{ doc.name }}"
+            >
+                I'm Interested in Renting this Shop
+            </a>
+
+        </footer>
+
+        {% else %}
+
+        <footer>
+
+            <button disabled>
+
+                Currently Occupied
+
+            </button>
+
+        </footer>
+
+        {% endif %}
+
+    </article>
+
+</div>
+
+</main>
+
+</body>
+
+</html>

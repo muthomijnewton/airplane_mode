@@ -8,12 +8,12 @@
  "field_order": [
   "section_break_owsd",
   "passenger",
-  "status",
   "source_airport_code",
+  "status",
   "column_break_tawd",
   "flight",
-  "seat",
   "destination_airport_code",
+  "seat",
   "add_ons_section",
   "add_ons",
   "price_details_section",
@@ -163,16 +163,18 @@
    "search_index": 1
   },
   {
+   "fetch_from": "flight.gate_number",
    "fieldname": "gate_number",
    "fieldtype": "Data",
-   "label": "Gate Number"
+   "label": "Gate Number",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-07-27 18:33:30.139656",
+ "modified": "2026-07-29 10:25:25.789673",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket",

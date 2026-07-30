@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Airport Shops</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+</head>
+
+<body>
+
+    <h1>Airport Shops</h1>
+
+    {% set shops = frappe.get_all(
+        "Airport Shop",
+        filters={
+            "status": "Available",
+            "is_published": 1
+        },
+        fields=[
+            "name",
+            "shop_number",
+            "airport",
+            "monthly_rent",
+            "area_sq_m",
+            "route"
+        ]
+    ) %}
+
+    <ul>
+
+    {% for shop in shops %}
+
+        <li>
+
+            <a href="/{{ shop.route }}">
+                {{ shop.name }}
+            </a>
+            ({{ shop.shop_number }})
+        </li>
+
+    {% endfor %}
+
+    </ul>
+
+</body>
+</html>
